@@ -3,6 +3,8 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import studentRoutes from './routes/studentRoutes.js';
 import connectDB from './config/db.js';
+import cors from 'cors';
+
 
 dotenv.config();
 
