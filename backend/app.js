@@ -4,9 +4,12 @@ import dotenv from 'dotenv';
 import studentRoutes from './routes/studentRoutes.js';
 import connectDB from './config/db.js';
 import cors from 'cors';
+import authRoutes from './routes/authRoutes.js';
 
 
 dotenv.config();
+
+
 
 
 connectDB().catch((err) => {
@@ -19,6 +22,7 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.use('/api/auth', authRoutes);
 
 
 app.use('/api/students', studentRoutes);

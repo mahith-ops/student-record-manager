@@ -4,11 +4,13 @@ import  {createStudent} from '../controllers/studentControllers.js';
 import  {updateStudent } from '../controllers/studentControllers.js';  
 import  {deleteStudent} from '../controllers/studentControllers.js';
 
+import protect from '../middleware/authMiddleware.js';
+
 const router = express.Router();
 
-router.get('/', getStudents);
-router.post('/', createStudent);
-router.put('/:id', updateStudent);
-router.delete('/:id', deleteStudent);
+router.get('/',protect, getStudents);
+router.post('/',protect, createStudent);
+router.put('/:id',protect, updateStudent);
+router.delete('/:id',protect, deleteStudent);
 
 export default router;
