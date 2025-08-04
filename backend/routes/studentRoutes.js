@@ -1,8 +1,5 @@
 import express from 'express';
-import  {getStudents}  from '../controllers/studentControllers.js';
-import  {createStudent} from '../controllers/studentControllers.js';
-import  {updateStudent } from '../controllers/studentControllers.js';  
-import  {deleteStudent} from '../controllers/studentControllers.js';
+import  {getStudents, createStudent, updateStudent, deleteStudent, updateMarks}  from '../controllers/studentControllers.js';
 
 import protect from '../middleware/authMiddleware.js';
 
@@ -12,5 +9,7 @@ router.get('/',protect, getStudents);
 router.post('/',protect, createStudent);
 router.put('/:id',protect, updateStudent);
 router.delete('/:id',protect, deleteStudent);
+
+router.put('/marks/update', updateMarks);
 
 export default router;

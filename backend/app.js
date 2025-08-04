@@ -5,6 +5,7 @@ import studentRoutes from './routes/studentRoutes.js';
 import connectDB from './config/db.js';
 import cors from 'cors';
 import authRoutes from './routes/authRoutes.js';
+import subjectRoutes from './routes/subjectRoutes.js';
 
 
 dotenv.config();
@@ -26,6 +27,7 @@ app.use('/api/auth', authRoutes);
 
 
 app.use('/api/students', studentRoutes);
+app.use("/api/subjects", subjectRoutes);
 
 app.use((req, res, next) => {
   res.status(404).json({ message: 'Route not found' });
